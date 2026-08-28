@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "message": "Node.js and MySQL are connected!",
+    "result": [
+        {
+            "test": 1
+        }
+    ]
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Prison</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="shell">
+        <section id="loginView" class="login-layout">
+            <div class="intro">
+                <p class="eyebrow">UNIVERSITY OF PRISON</p>
+                <h1>One calm place for the whole university.</h1>
+                <p class="intro-copy">Manage people, records, and daily operations from a single secure workspace.</p>
+            </div>
+            <form id="loginForm" class="panel login-panel">
+                <p class="eyebrow">WELCOME BACK</p>
+                <h2>Sign in</h2>
+                <label for="username">Username</label>
+                <input id="username" name="username" autocomplete="username" required>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required>
+                <label for="role">Role</label>
+                <select id="role" name="role">
+                    <option value="admin">Administrator</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+                <button type="submit">Sign in</button>
+                <p id="loginMessage" class="message" role="alert"></p>
+                <p class="hint">Demo accounts are available after running the database seed.</p>
+            </form>
+        </section>
+        <section id="welcomeView" class="welcome-view hidden" aria-live="polite">
+            <div class="school-seal" aria-label="University of Prison school logo">
+                <span>UP</span>
+            </div>
+            <p class="eyebrow">UNIVERSITY OF PRISON</p>
+            <h1>Welcome, <span id="welcomeName">Student</span></h1>
+            <p id="welcomeRole" class="welcome-role">Student portal</p>
+            <div class="welcome-line"></div>
+            <p class="welcome-status">Preparing your campus workspace...</p>
+        </section>
+        <section id="dashboardView" class="dashboard-view hidden">
+            <header class="topbar">
+                <div><p class="eyebrow">UNIVERSITY OF PRISON</p><h1 id="dashboardTitle">Dashboard</h1></div>
+                <div class="user-actions"><span id="userBadge"></span><button id="logoutButton" class="button-quiet" type="button">Log out</button></div>
+            </header>
+            <nav class="dashboard-nav" aria-label="Dashboard sections">
+                    <button class="nav-button active" data-section="profileSection" type="button">My profile</button>
+                <button class="nav-button" data-section="studentDashboardSection" type="button">Student dashboard</button>
+                <button class="nav-button" data-section="overviewSection" type="button">Overview</button>
+                     <button class="nav-button" data-section="aboutSection" type="button">About us</button>
+                     <button class="nav-button" data-section="classesSection" type="button">All classes</button>
+                     <button class="nav-button" data-section="announcementsSection" type="button">Announcements</button>
+                     <button class="nav-button" data-section="activitiesSection" type="button">Activities</button>
+                     <button class="nav-button" data-section="attendanceSection" type="button">Attendance</button>
+                     <button class="nav-button" data-section="enrollmentSection" type="button">Enrollment management</button>
+            </nav>
+            <section id="studentDashboardSection" class="dashboard-section hidden">
+                <section class="academic-summary">
+                    <div class="summary-heading"><div><p class="eyebrow">STUDENT DASHBOARD</p><h2>Academic summary</h2></div><span class="section-meta">Current term</span></div>
+                    <div class="summary-grid">
+                        <article class="summary-card grades-card"><div class="summary-card-heading"><h3>Grades</h3><span class="summary-value">88.5%</span></div><div class="grade-list"><div><span>IT 101 · Computing</span><strong>92</strong></div><div><span>IT 102 · Programming</span><strong>88</strong></div><div><span>IT 201 · Algorithms</span><strong>85</strong></div><div><span>IT 202 · Database</span><strong>89</strong></div></div></article>
+                        <article class="summary-card attendance-card"><div class="summary-card-heading"><h3>Attendance</h3><span class="summary-value">94%</span></div><div class="attendance-meter"><span style="width: 94%"></span></div><div class="attendance-stats"><span><strong>47</strong> Present</span><span><strong>3</strong> Absent</span><span><strong>2</strong> Late</span></div></article>
+                        <article class="summary-card subjects-summary"><div class="summary-card-heading"><h3>Subjects</h3><span class="summary-value">6 enrolled</span></div><div class="subject-chips"><span>IT 101</span><span>IT 102</span><span>IT 201</span><span>IT 202</span><span>IT 203</span><span>IT 204</span></div></article>
+                        <article class="summary-card mini-announcements"><div class="summary-card-heading"><h3>Announcements</h3><span class="summary-value">3 new</span></div><ul><li>Enrollment verification · Aug 28</li><li>IT orientation · Sep 02</li><li>Programming workshop · Sep 09</li></ul></article>
+                    </div>
+                    <article class="summary-card summary-schedule"><div class="summary-card-heading"><h3>Today's schedule</h3><span class="summary-value">Current week</span></div><div class="schedule-preview"><div><strong>IT 101</strong><span>Introduction to Computing</span><small>Mon · 8:00–10:00 AM · LAB 101</small></div><div><strong>IT 102</strong><span>Computer Programming 1</span><small>Tue · 9:00–11:00 AM · LAB 102</small></div><div><strong>IT 201</strong><span>Data Structures & Algorithms</span><small>Wed · 1:00–3:00 PM · C 201</small></div></div></article>
+                </section>
+            </section>
+            <div id="overviewSection" class="dashboard-section">
+            <div class="stats">
+                <article class="stat-card"><span>Students</span><strong id="studentCount">0</strong></article>
+                <article class="stat-card"><span>Teachers</span><strong id="teacherCount">0</strong></article>
+                <article class="stat-card"><span>Total users</span><strong id="userCount">0</strong></article>
+            </div>
+            <div class="dashboard-grid">
+                <section class="panel subjects-panel">
+                    <div class="section-heading"><div><p class="eyebrow">ACADEMIC PROGRAM</p><h2>IT subjects</h2></div><span class="section-meta">BSIT curriculum</span></div>
+                    <div class="subject-list">
+                        <article class="subject-card"><span class="subject-code">IT 101</span><h3>Introduction to Computing</h3><p>Computer concepts, digital citizenship, and technology foundations.</p></article>
+                        <article class="subject-card"><span class="subject-code">IT 102</span><h3>Computer Programming 1</h3><p>Problem solving, algorithms, and programming fundamentals.</p></article>
+                        <article class="subject-card"><span class="subject-code">IT 201</span><h3>Data Structures and Algorithms</h3><p>Efficient data organization and algorithm design.</p></article>
+                        <article class="subject-card"><span class="subject-code">IT 202</span><h3>Database Management Systems</h3><p>Relational databases, SQL, and information management.</p></article>
+                        <article class="subject-card"><span class="subject-code">IT 203</span><h3>Web Development</h3><p>Frontend, backend, APIs, and responsive web applications.</p></article>
+                        <article class="subject-card"><span class="subject-code">IT 204</span><h3>Networking Fundamentals</h3><p>Network models, protocols, security, and infrastructure.</p></article>
+                    </div>
+                </section>
+                <section class="panel announcements-panel">
+                    <div class="section-heading"><div><p class="eyebrow">CAMPUS BULLETIN</p><h2>Announcements</h2></div></div>
+                    <div class="announcement-list">
+                        <article class="announcement"><div class="announcement-date"><strong>30</strong><span>AUG</span></div><div><h3>Enrollment verification</h3><p>Submit your verified student documents to the registrar.</p></div></article>
+                        <article class="announcement"><div class="announcement-date"><strong>05</strong><span>SEP</span></div><div><h3>IT orientation</h3><p>New IT students meet at the university computer laboratory.</p></div></article>
+                        <article class="announcement"><div class="announcement-date"><strong>17</strong><span>SEP</span></div><div><h3>Programming workshop</h3><p>Bring your laptop and join the hands-on coding session.</p></div></article>
+                    </div>
+                </section>
+            </div>
+            <div class="dashboard-grid lower-grid">
+                <section class="panel rooms-panel">
+                    <div class="section-heading"><div><p class="eyebrow">CAMPUS SPACES</p><h2>Rooms</h2></div><span class="section-meta">IT facilities</span></div>
+                    <div class="room-list">
+                        <article class="room-card"><span class="room-number">LAB 101</span><div><h3>Computer Laboratory 1</h3><p>30 workstations · Main Building</p></div><span class="room-status available">Available</span></article>
+                        <article class="room-card"><span class="room-number">LAB 102</span><div><h3>Computer Laboratory 2</h3><p>30 workstations · Main Building</p></div><span class="room-status in-use">In use</span></article>
+                        <article class="room-card"><span class="room-number">C 201</span><div><h3>IT Lecture Room</h3><p>45 seats · Academic Building</p></div><span class="room-status available">Available</span></article>
+                        <article class="room-card"><span class="room-number">C 202</span><div><h3>Networking Laboratory</h3><p>25 workstations · Academic Building</p></div><span class="room-status available">Available</span></article>
+                    </div>
+                </section>
+                <section class="panel schedule-panel">
+                    <div class="section-heading"><div><p class="eyebrow">WEEKLY PLAN</p><h2>Class schedule</h2></div><span class="section-meta">Current term</span></div>
+                    <div class="schedule-wrap"><table class="schedule-table"><thead><tr><th>Subject</th><th>Instructor</th><th>Day & time</th><th>Room</th></tr></thead><tbody>
+                        <tr><td><strong>Introduction to Computing</strong><small>IT 101</small></td><td>Juan Dela Cruz</td><td>Mon · 8:00–10:00 AM</td><td>LAB 101</td></tr>
+                        <tr><td><strong>Computer Programming 1</strong><small>IT 102</small></td><td>Maria Santos</td><td>Tue · 9:00–11:00 AM</td><td>LAB 102</td></tr>
+                        <tr><td><strong>Data Structures & Algorithms</strong><small>IT 201</small></td><td>Carlo Reyes</td><td>Wed · 1:00–3:00 PM</td><td>C 201</td></tr>
+                        <tr><td><strong>Database Management Systems</strong><small>IT 202</small></td><td>Ana Garcia</td><td>Thu · 10:00 AM–12:00 PM</td><td>LAB 101</td></tr>
+                        <tr><td><strong>Web Development</strong><small>IT 203</small></td><td>Mark Bautista</td><td>Fri · 8:00–11:00 AM</td><td>LAB 102</td></tr>
+                        <tr><td><strong>Networking Fundamentals</strong><small>IT 204</small></td><td>Liza Navarro</td><td>Sat · 9:00–12:00 NN</td><td>C 202</td></tr>
+                    </tbody></table></div>
+                </section>
+            </div>
+            <section class="panel table-panel">
+                <div class="section-heading"><div><p class="eyebrow">DIRECTORY</p><h2>Students</h2></div><button id="addStudentButton" class="button-small" type="button">Add student</button></div>
+                <div class="table-tools"><label class="search-label" for="studentSearch">Search directory</label><input id="studentSearch" type="search" placeholder="Search by name or student ID"></div>
+                <p id="tableMessage" class="message" role="status"></p>
+                <div class="table-wrap"><table><thead><tr><th>Student ID</th><th>Name</th><th>Gender</th><th>Phone</th><th>Actions</th></tr></thead><tbody id="studentTable"></tbody></table></div>
+            </section>
+            </div>
+            <section id="aboutSection" class="dashboard-section hidden">
+                <section class="panel directory-panel">
+                    <div class="about-introduction">
+                        <p class="eyebrow">ABOUT UNIVERSITY OF PRISON</p>
+                        <h2>Welcome to University of Prison</h2>
+                        <p>Welcome to University of Prison, a fictional university built around discipline, survival, and second chances.</p>
+                        <p>Our institution is more than just a place of learning—it is a place where students face challenges, discover their strengths, and prepare themselves for a better future. At University of Prison, we believe that every mistake can become a lesson and every challenge can be an opportunity to grow.</p>
+                        <p>Through education, discipline, teamwork, and determination, we aim to create an environment where everyone has the chance to learn, improve, and become a better version of themselves.</p>
+                        <p class="about-motto">University of Prison — Learn. Survive. Grow.</p>
+                    </div>
+                    <div class="values-grid">
+                        <article class="value-card"><span class="value-label">MOTTO</span><h3>Our motto</h3><p>“Knowledge, discipline, and technology for a better tomorrow.”</p></article>
+                        <article class="value-card"><span class="value-label">VISION</span><h3>Our vision</h3><p>The University of Prison envisions a community of disciplined, knowledgeable, and responsible individuals who are equipped with the skills, values, and determination needed to succeed in life and contribute positively to society.</p></article>
+                        <article class="value-card"><span class="value-label">MISSION</span><h3>Our mission</h3><p>The University of Prison is committed to providing quality education in a safe, disciplined, and supportive environment. We aim to develop students’ knowledge, character, leadership, and critical-thinking skills while preparing them to overcome challenges and pursue a successful future.</p></article>
+                    </div>
+                </section>
+            </section>
+            <section id="classesSection" class="dashboard-section hidden">
+                <section class="panel classes-panel">
+                    <div class="section-heading"><div><p class="eyebrow">COURSE CATALOG</p><h2>All classes</h2></div><span class="section-meta">BSIT curriculum</span></div>
+                    <div class="class-catalog">
+                        <article class="class-row"><span class="subject-code">IT 101</span><div><h3>Introduction to Computing</h3><p>Computer concepts and digital citizenship</p></div><span>3 units</span></article>
+                        <article class="class-row"><span class="subject-code">IT 102</span><div><h3>Computer Programming 1</h3><p>Algorithms, problem solving, and coding fundamentals</p></div><span>3 units</span></article>
+                        <article class="class-row"><span class="subject-code">IT 201</span><div><h3>Data Structures & Algorithms</h3><p>Data organization and efficient algorithm design</p></div><span>3 units</span></article>
+                        <article class="class-row"><span class="subject-code">IT 202</span><div><h3>Database Management Systems</h3><p>Relational databases, SQL, and information management</p></div><span>3 units</span></article>
+                        <article class="class-row"><span class="subject-code">IT 203</span><div><h3>Web Development</h3><p>Frontend, backend, APIs, and responsive applications</p></div><span>3 units</span></article>
+                        <article class="class-row"><span class="subject-code">IT 204</span><div><h3>Networking Fundamentals</h3><p>Protocols, network security, and infrastructure</p></div><span>3 units</span></article>
+                    </div>
+                </section>
+            </section>
+            <section id="activitiesSection" class="dashboard-section hidden">
+                <section class="panel activities-panel">
+                    <div class="section-heading"><div><p class="eyebrow">CAMPUS LIFE</p><h2>School activities</h2></div><span class="section-meta">Student calendar</span></div>
+                    <div class="activity-list">
+                        <article class="activity-card"><div class="activity-date"><strong>30</strong><span>AUG</span></div><div><span class="activity-type">Academic</span><h3>Enrollment verification</h3><p>Submit verified student documents to the registrar before the deadline.</p><span class="activity-location">Registrar's Office · 9:00 AM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>05</strong><span>SEP</span></div><div><span class="activity-type">Orientation</span><h3>IT student orientation</h3><p>Meet your classmates, instructors, and student support team.</p><span class="activity-location">Computer Laboratory · 8:00 AM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>17</strong><span>SEP</span></div><div><span class="activity-type">Workshop</span><h3>Programming workshop</h3><p>Build a small project while practicing programming fundamentals.</p><span class="activity-location">LAB 102 · 1:00 PM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>29</strong><span>SEP</span></div><div><span class="activity-type">Community</span><h3>Campus clean-up drive</h3><p>Join fellow students in keeping our learning spaces clean and welcoming.</p><span class="activity-location">Main Quadrangle · 7:00 AM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>08</strong><span>OCT</span></div><div><span class="activity-type">Sports</span><h3>University sports day</h3><p>Compete, support your team, and enjoy an active day with the campus community.</p><span class="activity-location">University Gym · 8:00 AM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>19</strong><span>OCT</span></div><div><span class="activity-type">Technology</span><h3>Web design showcase</h3><p>Present your creative website projects and discover new ideas from fellow students.</p><span class="activity-location">Academic Building · 1:00 PM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>03</strong><span>NOV</span></div><div><span class="activity-type">Leadership</span><h3>Student leadership forum</h3><p>Learn practical leadership skills and share ideas for improving campus life.</p><span class="activity-location">Lecture Hall · 9:00 AM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>15</strong><span>NOV</span></div><div><span class="activity-type">Arts</span><h3>Creative talent night</h3><p>Celebrate the talents of our students through music, dance, art, and performance.</p><span class="activity-location">University Auditorium · 6:00 PM</span></div></article>
+                        <article class="activity-card"><div class="activity-date"><strong>01</strong><span>DEC</span></div><div><span class="activity-type">Career</span><h3>Career preparation seminar</h3><p>Get useful advice on resumes, interviews, workplace skills, and future opportunities.</p><span class="activity-location">Training Room · 10:00 AM</span></div></article>
+                    </div>
+                </section>
+            </section>
+            <section id="announcementsSection" class="dashboard-section hidden">
+                <section class="panel announcements-page-panel">
+                    <div class="section-heading"><div><p class="eyebrow">CAMPUS BULLETIN</p><h2>Announcements</h2></div><span class="section-meta">Teacher updates</span></div>
+                    <form id="teacherAnnouncementForm" class="announcement-form hidden">
+                        <div><label for="announcementTitle">Title</label><input id="announcementTitle" name="title" maxlength="150" placeholder="Announcement title" required></div>
+                        <div><label for="announcementDate">Date</label><input id="announcementDate" name="announcement_date" type="date" value="2026-08-30" required></div>
+                        <div><label for="announcementMessage">Message</label><textarea id="announcementMessage" name="message" maxlength="2000" rows="3" placeholder="Write an announcement for students..." required></textarea></div>
+                        <div class="announcement-form-actions"><p id="announcementMessageStatus" class="message" role="alert"></p><button type="submit">Post announcement</button></div>
+                    </form>
+                    <div id="announcementList" class="posted-announcement-list"><p class="message">Loading announcements...</p></div>
+                </section>
+            </section>
+            <section id="attendanceSection" class="dashboard-section hidden">
+                <section class="panel attendance-page-panel">
+                    <div class="section-heading"><div><p class="eyebrow">ACADEMIC RECORDS</p><h2>Attendance</h2></div><span class="section-meta">Current term</span></div>
+                    <div class="attendance-overview">
+                        <div class="attendance-total"><span>Overall attendance</span><strong>94%</strong><small>Excellent standing</small></div>
+                        <div class="attendance-stat"><strong>47</strong><span>Present</span></div>
+                        <div class="attendance-stat"><strong>3</strong><span>Absent</span></div>
+                        <div class="attendance-stat"><strong>2</strong><span>Late</span></div>
+                    </div>
+                    <div class="attendance-table-wrap"><table class="attendance-table"><thead><tr><th>Date</th><th>Subject</th><th>Instructor</th><th>Time</th><th>Status</th></tr></thead><tbody>
+                        <tr><td>Aug 28, 2026</td><td><strong>Introduction to Computing</strong><small>IT 101</small></td><td>Juan Dela Cruz</td><td>8:00–10:00 AM</td><td><span class="attendance-status present">Present</span></td></tr>
+                        <tr><td>Aug 27, 2026</td><td><strong>Computer Programming 1</strong><small>IT 102</small></td><td>Maria Santos</td><td>9:00–11:00 AM</td><td><span class="attendance-status present">Present</span></td></tr>
+                        <tr><td>Aug 26, 2026</td><td><strong>Data Structures & Algorithms</strong><small>IT 201</small></td><td>Carlo Reyes</td><td>1:00–3:00 PM</td><td><span class="attendance-status late">Late</span></td></tr>
+                        <tr><td>Aug 25, 2026</td><td><strong>Database Management Systems</strong><small>IT 202</small></td><td>Ana Garcia</td><td>10:00 AM–12:00 PM</td><td><span class="attendance-status present">Present</span></td></tr>
+                        <tr><td>Aug 24, 2026</td><td><strong>Web Development</strong><small>IT 203</small></td><td>Mark Bautista</td><td>8:00–11:00 AM</td><td><span class="attendance-status absent">Absent</span></td></tr>
+                    </tbody></table></div>
+                </section>
+            </section>
+            <section id="enrollmentSection" class="dashboard-section hidden">
+                <section class="panel enrollment-panel">
+                    <div class="section-heading"><div><p class="eyebrow">REGISTRAR SERVICES</p><h2>Enrollment management</h2></div><span class="section-meta">Academic year 2026–2027</span></div>
+                    <div class="enrollment-stats">
+                        <div><span>Total enrolled</span><strong>6</strong><small>Active students</small></div>
+                        <div><span>Pending review</span><strong>2</strong><small>Applications</small></div>
+                        <div><span>Available slots</span><strong>24</strong><small>BSIT program</small></div>
+                    </div>
+                    <div class="enrollment-heading"><h3>Enrollment applications</h3><span class="section-meta">Latest records</span></div>
+                    <div class="enrollment-table-wrap"><table class="enrollment-table"><thead><tr><th>Student</th><th>Program</th><th>Date submitted</th><th>Status</th></tr></thead><tbody>
+                        <tr><td><strong>Jeckster Maranan</strong><small>STU-001</small></td><td>BSIT</td><td>Aug 18, 2026</td><td><span class="enrollment-status enrolled">Enrolled</span></td></tr>
+                        <tr><td><strong>Troy Derilo</strong><small>STU-002</small></td><td>BSIT</td><td>Aug 27, 2026</td><td><span class="enrollment-status enrolled">Enrolled</span></td></tr>
+                        <tr><td><strong>Ruzel Dichoso</strong><small>STU-003</small></td><td>BSIT</td><td>Sep 06, 2026</td><td><span class="enrollment-status review">For review</span></td></tr>
+                        <tr><td><strong>Julius Glenn Dichoso</strong><small>STU-004</small></td><td>BSIT</td><td>Sep 19, 2026</td><td><span class="enrollment-status enrolled">Enrolled</span></td></tr>
+                        <tr><td><strong>Ralph Jeer Dichoso</strong><small>STU-005</small></td><td>BSIT</td><td>Oct 04, 2026</td><td><span class="enrollment-status review">For review</span></td></tr>
+                        <tr><td><strong>Jayson Luna</strong><small>STU-006</small></td><td>BSIT</td><td>Oct 22, 2026</td><td><span class="enrollment-status enrolled">Enrolled</span></td></tr>
+                    </tbody></table></div>
+                </section>
+            </section>
+            <section id="profileSection" class="dashboard-section hidden">
+                <section class="panel profile-panel">
+                    <div class="profile-heading"><div class="profile-avatar" id="profileAvatar">UP</div><div><p class="eyebrow" id="profileEyebrow">ACCOUNT PROFILE</p><h2 id="profileName">My profile</h2><p id="profileRole" class="profile-role">University account</p></div></div>
+                    <div class="profile-details">
+                        <div><span class="profile-label">Username</span><strong id="profileUsername">-</strong></div>
+                        <div><span class="profile-label">Email</span><strong id="profileEmail">-</strong></div>
+                        <div><span class="profile-label">Account type</span><strong id="profileAccountType">-</strong></div>
+                        <div><span class="profile-label" id="profileIdLabel">Account ID</span><strong id="profileId">-</strong></div>
+                    </div>
+                    <p id="profileDescription" class="profile-description"></p>
+                </section>
+            </section>
+        </section>
+    </main>
+    <dialog id="studentDialog" class="student-dialog">
+        <form id="studentForm" method="dialog" class="panel dialog-panel">
+            <div class="dialog-heading"><div><p id="dialogEyebrow" class="eyebrow">NEW RECORD</p><h2 id="dialogTitle">Add student</h2></div><button id="closeDialogButton" class="icon-button" type="button" aria-label="Close dialog">&times;</button></div>
+            <div class="form-grid">
+                <div><label for="studentId">Student ID</label><input id="studentId" name="student_id" required></div>
+                <div><label for="firstName">First name</label><input id="firstName" name="first_name" required></div>
+                <div><label for="lastName">Last name</label><input id="lastName" name="last_name" required></div>
+                <div><label for="gender">Gender</label><select id="gender" name="gender"><option value="">Select</option><option>Female</option><option>Male</option><option>Other</option></select></div>
+                <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
+                <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+                <div id="usernameField"><label for="username">Username</label><input id="studentUsername" name="username" autocomplete="off"></div>
+                <div id="passwordField"><label for="studentPassword">Password</label><input id="studentPassword" name="password" type="password" minlength="8" autocomplete="new-password"></div>
+            </div>
+            <p id="formMessage" class="message" role="alert"></p>
+            <div class="dialog-actions"><button id="cancelDialogButton" class="button-quiet" type="button">Cancel</button><button id="saveStudentButton" type="submit">Save student</button></div>
+        </form>
+    </dialog>
+    <script src="app.js"></script>
+</body>
+</html>
