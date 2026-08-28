@@ -11,6 +11,7 @@
     <main class="shell">
         <section id="loginView" class="login-layout">
             <div class="intro">
+                <img class="brand-logo" src="school-logo.svg" alt="University of Prison logo">
                 <p class="eyebrow">UNIVERSITY OF PRISON</p>
                 <h1>One calm place for the whole university.</h1>
                 <p class="intro-copy">Manage people, records, and daily operations from a single secure workspace.</p>
@@ -34,9 +35,7 @@
             </form>
         </section>
         <section id="welcomeView" class="welcome-view hidden" aria-live="polite">
-            <div class="school-seal" aria-label="University of Prison school logo">
-                <span>UP</span>
-            </div>
+            <img class="welcome-logo" src="school-logo.svg" alt="University of Prison logo">
             <p class="eyebrow">UNIVERSITY OF PRISON</p>
             <h1>Welcome, <span id="welcomeName">Student</span></h1>
             <p id="welcomeRole" class="welcome-role">Student portal</p>
@@ -45,7 +44,7 @@
         </section>
         <section id="dashboardView" class="dashboard-view hidden">
             <header class="topbar">
-                <div><p class="eyebrow">UNIVERSITY OF PRISON</p><h1 id="dashboardTitle">Dashboard</h1></div>
+                <div class="brand-heading"><img class="header-logo" src="school-logo.svg" alt="University of Prison logo"><div><p class="eyebrow">UNIVERSITY OF PRISON</p><h1 id="dashboardTitle">Dashboard</h1></div></div>
                 <div class="user-actions"><span id="userBadge"></span><button id="logoutButton" class="button-quiet" type="button">Log out</button></div>
             </header>
             <nav class="dashboard-nav" aria-label="Dashboard sections">
@@ -224,7 +223,7 @@
             </section>
             <section id="profileSection" class="dashboard-section hidden">
                 <section class="panel profile-panel">
-                    <div class="profile-heading"><div class="profile-avatar" id="profileAvatar">UP</div><div><p class="eyebrow" id="profileEyebrow">ACCOUNT PROFILE</p><h2 id="profileName">My profile</h2><p id="profileRole" class="profile-role">University account</p></div></div>
+                    <div class="profile-heading"><img class="profile-logo" src="school-logo.svg" alt="University of Prison logo"><div><p class="eyebrow" id="profileEyebrow">ACCOUNT PROFILE</p><h2 id="profileName">My profile</h2><p id="profileRole" class="profile-role">University account</p></div></div>
                     <div class="profile-details">
                         <div><span class="profile-label">Username</span><strong id="profileUsername">-</strong></div>
                         <div><span class="profile-label">Email</span><strong id="profileEmail">-</strong></div>
