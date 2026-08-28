@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">University of Prison logo</title>
+  <desc id="desc">A professional green and gold university seal with the letters UP.</desc>
+  <circle cx="120" cy="120" r="112" fill="#125b4b"/>
+  <circle cx="120" cy="120" r="96" fill="#f5f4ef" stroke="#d5ed78" stroke-width="7"/>
+  <circle cx="120" cy="120" r="78" fill="#125b4b"/>
+  <path d="M120 47l9 18 20 3-15 14 4 20-18-10-18 10 4-20-15-14 20-3z" fill="#d5ed78"/>
+  <path d="M82 93h18v48c0 13 7 20 20 20s20-7 20-20V93h18v49c0 24-14 37-38 37s-38-13-38-37z" fill="#f5f4ef"/>
+  <path d="M92 153h56v12H92z" fill="#d5ed78"/>
+  <path d="M61 61l12-12M179 49l12 12M49 179l12-12M179 167l12 12" stroke="#125b4b" stroke-width="4" stroke-linecap="round"/>
+  <text x="120" y="218" text-anchor="middle" fill="#125b4b" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2">EST. 2024</text>
+</svg>
